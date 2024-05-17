@@ -1,0 +1,41 @@
+server:
+  port: 18080
+  tomcat:
+    basedir: ./
+    accesslog:
+      enabled: true
+      directory: ${spring.boot.accesslog.directory}
+      prefix: access_log
+      suffix: .log
+      pattern: "%h %l %u %t \"%r\" %s %b %D"
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    session:
+      timeout: 60m
+spring:
+  output:
+    ansi:
+      enabled: always
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  application:
+    name: coco
+  freemarker:
+    suffix: .ftl
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://13.209.195.90:6446/gpuaas
+    username: coco
+    password: Coco2024#
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
